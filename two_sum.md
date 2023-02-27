@@ -24,6 +24,6 @@ class Solution:
             hashset[target - value] = index
         return [-1,-1]
 
- ## O(n) time, O(n) space   
+ // O(n) time, O(n) space   
 
 ```
