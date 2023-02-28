@@ -4,7 +4,7 @@ Given a string s, return true if it is a palindrome, or false otherwise.
 
 <https://leetcode.com/problems/valid-palindrome/>
 
-#### Approach 1 (python slicing)
+#### Approach 1 (python slicing) O(n), O(n)
 ```python
 class Solution:
     def isPalindrome(self, s: str) -> bool:
@@ -17,7 +17,7 @@ class Solution:
         
         return output == output[::-1]
 ```
-#### Approach 2 - two pointer
+#### Approach 2 - two pointer O(n) and O(1)
 ```python
    class Solution:
     def isPalindrome(self, s: str) -> bool:
