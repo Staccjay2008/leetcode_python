@@ -2,47 +2,29 @@
 ##### Given an array of integers, find two numbers such that they add up to a specific target number.
 ##### The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are zero-based.
 
-###### python solution - hashmap
+
+<https://leetcode.com/problems/two-sum/description/>
+
+#### python hashmap solution 
+##### O(n) and O(n)
 ```python
-from typing import (
-    List,
-)
-
 class Solution:
-    """
-    @param numbers: An array of Integer
-    @param target: target = numbers[index1] + numbers[index2]
-    @return: [index1, index2] (index1 < index2)
-    """
-    def two_sum(self, numbers: List[int], target: int) -> List[int]:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         hashmap = {}
-        for index, value in enumerate(numbers):
-            print(target-value)
-            if value in hashmap:   
-                return [hashmap[value], index]
-            hashmap[target - value] = index
-        return [-1,-1]
-
- # O(n) time, O(n) space   
-
+        for index, value in enumerate(nums):
+            if target - value in hashmap:
+                return [hashmap[target - value], index]
+            hashmap[value] = index
 ```
 
-###### python solution - sort + two pointer
+#### python sort + two pointer solution 
+##### O(nlogn), o(n)
 ```python
-from typing import (
-    List,
-)
-
 class Solution:
-    """
-    @param numbers: An array of Integer
-    @param target: target = numbers[index1] + numbers[index2]
-    @return: [index1, index2] (index1 < index2)
-    """
-    def two_sum(self, numbers: List[int], target: int) -> List[int]:
-        if not numbers:
-            return [-1,-1]
-        new_list = [(number, index) for index, number in enumerate(numbers)]
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        if not nums:
+            return [-1, -1]
+        new_list = [(number, index) for index, number in enumerate(nums)]
         new_list.sort()
         left, right = 0, len(new_list) - 1
         while left < right:
@@ -53,5 +35,4 @@ class Solution:
             else:
                 left += 1
         return [-1, -1]
-
 ```
